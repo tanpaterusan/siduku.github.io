@@ -1,0 +1,21 @@
+<script>
+    $(document).ready(function() {
+                $('#cek').on('click', function() {
+                    $('.card-title').html('Status Pengaduan Anda :');
+                    $('#tiket').change(function() {
+                        var tiket = $('#tiket').val();
+                        if (tiket != '') {
+                            $.ajax({
+                                url: "http://localhost/cek.php",
+                                method: "GET",
+                                data: {
+                                    tiket: tiket
+                                },
+                                success: function(data) {
+                                    $('.card-body form').html(data);
+                                }
+                            });
+                        }
+                    });
+                });
+</script>
