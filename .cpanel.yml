@@ -1,11 +1,10 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=//home/u1275185/public_html/
+    - export DEPLOYPATH=/home/u1275185/public_html/
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R side $DEPLOYPATH
     - /bin/cp -R templates $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp cek.php $DEPLOYPATH
@@ -14,4 +13,5 @@ deployment:
     - /bin/cp function.php $DEPLOYPATH
     - /bin/cp monev.php $DEPLOYPATH
     - /bin/cp tinjut.php $DEPLOYPATH
+    - /bin/cp index.php $DEPLOYPATH
 
