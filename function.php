@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "siduku");
+$conn = mysqli_connect("localhost", "5AfC2Jh@c222ZP8", "", "u1275185_siduku");
 
 
 function query($query)
