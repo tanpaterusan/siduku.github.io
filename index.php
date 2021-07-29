@@ -39,8 +39,8 @@ include 'templates/header.php';
             </button>
         </div>
         <br>
-        <h1 class="mb-1">SIDUKU</h1>
-        <h3 class="mb-5"><em>Aplikasi Pengaduan Maluku</em></h3>
+        <h1 class="mb-1">PEMUDA</h1>
+        <h3 class="mb-5"><em>Pengaduan Maluku via Daring</em></h3>
         <a class="btn btn-primary btn-xl" href="form.php">buat pengaduan!</a>
     </div>
 </header>

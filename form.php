@@ -80,20 +80,22 @@ include 'templates/header.php';
     <?php
 
     if (isset($_POST["submit"])) {
-        if (form($_POST) > 0) {
-            $tiket = time() . $_POST["jenis"];
-            echo "
-            <script>
-                alert('data berhasil ditambahkan! Nomor tiket Anda adalah $tiket');
-                window.location.href='form.php';
-            </script>
-            ";
+        if ($_POST["submit"] !== null) {
+            if (form($_POST) > 0) {
+                $tiket = time() . $_POST["jenis"];
+                echo "
+                    <script>
+                        alert('Terima kasih telah membuat pengaduan! Nomor tiket Anda adalah $tiket');
+                        window.location.href='form.php';
+                    </script>
+                    ";
+            }
         } else {
             echo "
-            <script>
-                alert('data gagal ditambahkan!');
-            </script>
-            ";
+                <script>
+                    alert('data gagal ditambahkan!');
+                </script>
+                ";
         }
     }
 
