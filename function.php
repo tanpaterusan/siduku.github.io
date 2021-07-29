@@ -33,13 +33,46 @@ function form($data)
     $status = "baru";
     $ket = "";
 
-    $query = "INSERT INTO tb_aduan 
+    //upload file
+    $file = upload();
+    if (!$file) {
+        return false;
+    }
+
+    if (!empty($perihal && $telp)) {
+        $query = "INSERT INTO tb_aduan 
               VALUES
-              ('', '$jenis', '$perihal', '$tempat', '$waktu', '$uraian', '$pelapor', '$terlapor', '$telp', '$tgl_masuk', '$tiket', '$status', '$ket')
+              ('', '$jenis', '$perihal', '$tempat', '$waktu', '$uraian', '$pelapor', '$terlapor', '$telp', '$tgl_masuk', '$tiket', '$status', '$ket', '$file')
               ";
-    mysqli_query($conn, $query);
-    return mysqli_affected_rows($conn);
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
+    }
 }
+
+function upload()
+{
+    $namaFile = $_FILES['file']['name'];
+    $ukuranFile = $_FILES['file']['size'];
+    $error = $_FILES['file']['error'];
+    $tmpName = $_FILES['file']['tmp_name'];
+
+    //cek ekstensi
+    $ekstensi = ['jpg', 'mp4', 'rar', 'zip', 'png', 'pdf', 'word'];
+    $ekstensiFile = explode('.', $namaFile);
+    $ekstensiFile = strtolower(end($ekstensiFile));
+    if (!in_array($ekstensiFile, $ekstensi)) {
+        echo "<script>
+        alert('format file tidak didukung!');
+        </script>";
+        return false;
+    }
+
+    //lolos pengecekan, gambar siap diupload
+    move_uploaded_file($tmpName, 'file/' . $namaFile);
+
+    return $namaFile;
+}
+
 
 function verif($data)
 {
