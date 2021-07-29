@@ -1,7 +1,7 @@
 <?php
 
-// $conn = mysqli_connect("localhost", "u1275185_tanpaterusan", "5AfC2Jh@c222ZP8", "u1275185_siduku");
-$conn = mysqli_connect("localhost", "root", "", "siduku");
+$conn = mysqli_connect("localhost", "u1275185_tanpaterusan", "5AfC2Jh@c222ZP8", "u1275185_siduku");
+// $conn = mysqli_connect("localhost", "root", "", "siduku");
 
 
 function query($query)
